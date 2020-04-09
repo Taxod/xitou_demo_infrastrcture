@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>溪頭設施資料庫demo</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <!-- 引入我們自己寫的 CSS -->
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>溪頭設施資料庫demo</h1>
+        </div>
+        <!-- Example single danger button -->
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      設施
+    </button>
+            <div class="dropdown-menu">
+                <button class="dropdown-item" id="chair" onclick="definename('chair')">椅子</button>
+                <button class="dropdown-item" id="man" onclick="definename('男廁')">男廁</button>
+                <button class="dropdown-item" id="treecard" onclick="definename('解說牌,樹牌')">解說牌/樹牌</button>
+                <button class="dropdown-item" id="roadcard" onclick="definename('路牌')">路牌</button>
+                <button class="dropdown-item" id="trash" onclick="definename('垃圾桶')">垃圾桶</button>
+
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      編號
+    </button>
+            <div class="dropdown-menu">
+                <button class="dropdown-item" id="one" onclick="definenumber('1')">1</button>
+                <button class="dropdown-item" id="two" onclick="definenumber('2')">2</button>
+                <button class="dropdown-item" id="three" onclick="definenumber('3')">3</button>
+                <button class="dropdown-item" id="four" onclick="definenumber('4')">4</button>
+                <button class="dropdown-item" id="five" onclick="definenumber('5')">5</button>
+                <button class="dropdown-item" id="six" onclick="definenumber('6')">6</button>
+                <button class="dropdown-item" id="seven" onclick="definenumber('7')">7</button>
+                <button class="dropdown-item" id="eight" onclick="definenumber('8')">8</button>
+                <button class="dropdown-item" id="nine" onclick="definenumber('9')">9</button>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      項目
+    </button>
+            <div class="dropdown-menu">
+                <button class="dropdown-item" id="all" onclick="getdataall()">全部</button>
+
+                <div class="dropdown-divider"></div>
+                <button class="dropdown-item" id="location" onclick="definetype('location')">location</button>
+                <button class="dropdown-item" id="treasure" onclick="definetype('材質')">材質</button>
+                <button class="dropdown-item" id="split" onclick="definetype('隔板')">隔板</button>
+                <button class="dropdown-item" id="小便斗" onclick="definetype('小便斗')">小便斗</button>
+                <button class="dropdown-item" id="蹲式馬桶" onclick="definetype('蹲式馬桶')">蹲式馬桶</button>
+                <button class="dropdown-item" id="坐式馬桶" onclick="definetype('坐式馬桶')">坐式馬桶</button>
+                <button class="dropdown-item" id="水龍頭" onclick="definetype('水龍頭')">水龍頭</button>
+                <button class="dropdown-item" id="主題" onclick="definetype('主題')">主題</button>
+                <button class="dropdown-item" id="大小" onclick="definetype('大小')">大小</button>
+                <button class="dropdown-item" id="形狀" onclick="definetype('形狀')">形狀</button>
+                <button class="dropdown-item" id="QRcode" onclick="definetype('QRcode')">QRcode</button>
+                <button class="dropdown-item" id="檢查頻率" onclick="definetype('檢查頻率')">檢查頻率</button>
+                <button class="dropdown-item" id="位置" onclick="definetype('位置')">位置</button>
+                <button class="dropdown-item" id="分類" onclick="definetype('分類')">分類</button>
+            </div>
+        </div>
+
+        <div class="form-group row ">
+            <div class="col-10 ">
+                <!-- <input class="form-control " type="text" id="answer" cols="30" rows="10"> -->
+                <textarea name="form-control" id="answer" cols="100" rows="10"></textarea>
+            </div>
+        </div>
+
+
+        <div align="middle">
+        </div>
+    </div>
+
+
+
+
+    <footer>
+        <div class="mastfoot" align="middle">
+            <div class="inner">
+                <p> &copy; 2019 created by Wen, data provided by 丹丹, Azusa, Floatblue, Terang, 芸.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js " integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js " integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb " crossorigin="anonymous "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js " integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn " crossorigin="anonymous "></script>
+
+    <!-- 引入我們自己寫的 JavaScript -->
+    <script src="./js/index.js "></script>
+
+</body>
+
+</html>
